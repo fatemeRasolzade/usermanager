@@ -61,8 +61,8 @@ export const userReducer= (state=initialState, action) =>{
             let newList = state.user.filter(u=> u.id !== state.userInfo.id)
             return {
                 ...state,
-                user : [newUser , ...newList],
-                contacts : [...targetUser.contacts , action.payload]
+                user : null,
+                contacts : null
             }
         }
         case 'DELETE_CONTACT':{

@@ -1,4 +1,5 @@
 import React from 'react'
+import history from '../history';
 
 class ErrorBoundary extends React.Component {
     constructor(props) {
@@ -11,8 +12,12 @@ class ErrorBoundary extends React.Component {
     }
   
     componentDidCatch(error, errorInfo) {
+      this.setState({
+        hasError: true,
+      })
         setTimeout(function(){
-            this.props.history.push("/");
+            history.push("/");
+            window.location.reload()
          }, 3000);
     }
   
